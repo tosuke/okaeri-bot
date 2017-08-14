@@ -1,0 +1,40 @@
+{
+  "name": "okaeri-bot",
+  "version": "1.0.0",
+  "description": "おかえり。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c",
+    "gas:pull": "cd dist; gas pull; cd ..",
+    "gas:push": "cd dist; gas push; cd .."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Tosuke/okaeri-bot.git"
+  },
+  "author": "tosuke <tasukeprg@gmail.com> (https://github.com/Tosuke)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Tosuke/okaeri-bot/issues"
+  },
+  "homepage": "https://github.com/Tosuke/okaeri-bot#readme",
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "babel-preset-gas": "^1.0.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "escodegen": "^1.8.1",
+    "gas-entry-generator": "^1.0.1",
+    "google-apps-script": "^2.2.0",
+    "rollup": "^0.47.4",
+    "rollup-plugin-babel": "^3.0.1",
+    "rollup-plugin-commonjs": "^8.1.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-uglify": "^2.0.1",
+    "uglify-es": "^3.0.27"
+  },
+  "dependencies": {}
+}

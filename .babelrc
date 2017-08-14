@@ -1,0 +1,7 @@
+{
+  "presets": ["es2015-rollup", "stage-2", "gas"],
+  "plugins": [
+    "transform-runtime",
+    "external-helpers"
+  ]
+}
