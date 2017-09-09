@@ -12,8 +12,15 @@ global.doPost = e => {
     Logger.log('invalid token')
   }
 
-  const message = config.message
-  slack.replyMessage(params, message)
+  config.patterns
+    .filter(({ matcher }) => matcher.test(params.text))
+    .map(({ message, user_persona }) => [
+      message(params),
+      user_persona || config.default_persona,
+    ])
+    .forEach(([message, user_persona]) =>
+      slack.postMessage(params.channel_id, message, user_persona)
+    )
 }
 
 /**
@@ -26,9 +33,20 @@ function isValidToken(token) {
 }
 
 global.doTest = () => {
-  const param = {
+  let param = {
     token: config.webhook_token,
     text: 'ただいま',
+    channel_id: 'C44HLB883',
+    user_name: 'tosuke',
+  }
+
+  doPost({
+    parameter: param,
+  })
+
+  param = {
+    token: config.webhook_token,
+    text: 'おやすみ',
     channel_id: 'C44HLB883',
     user_name: 'tosuke',
   }

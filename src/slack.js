@@ -9,7 +9,7 @@ import config from './config'
  */
 export function postMessage(channel_id, message, opt = {}) {
   const slackApp = SlackApp.create(config.slack_token)
-  const conf = Object.assign(opt, config.user_persona)
+  const conf = opt
   slackApp.chatPostMessage(channel_id, message, conf)
 }
 
