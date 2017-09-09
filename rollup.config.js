@@ -11,15 +11,15 @@ export default {
   format: 'cjs',
   plugins: [
     nodeResolve({
-      main: true
+      main: true,
     }),
     commonjs(),
     babel({
       runtimeHelpers: true,
       externalHelpers: true,
-      exclude: 'node_modules/**'
+      exclude: 'node_modules/**',
     }),
     gas(),
-    uglify({ie8: true}, minify)
-  ]
+    uglify({ ie8: true }, minify),
+  ],
 }

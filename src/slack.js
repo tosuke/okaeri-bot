@@ -13,7 +13,6 @@ export function postMessage(channel_id, message, opt = {}) {
   slackApp.chatPostMessage(channel_id, message, conf)
 }
 
-
 /**
  * reply message to replyee
  * @param {object} replyee 
@@ -26,7 +25,6 @@ export function replyMessage(replyee, message, opt = {}) {
   postMessage(replyee.channel_id, message, opt)
 }
 
-
 /**
  * reply message by thread to replyee
  * @param {object} replyee 
@@ -35,10 +33,15 @@ export function replyMessage(replyee, message, opt = {}) {
  * @param {object} opt = {}
  * @return {void}
  */
-export function replyMessageByThread(replyee, message, broadcast = true, opt = {}) {
+export function replyMessageByThread(
+  replyee,
+  message,
+  broadcast = true,
+  opt = {}
+) {
   opt = Object.assign(opt, {
     reply_broadcast: broadcast,
-    thread_ts: replyee.timestamp
-  });
+    thread_ts: replyee.timestamp,
+  })
   replyMessage(replyee, message, opt)
 }

@@ -6,7 +6,7 @@ import config from './config'
  * @param {*} e - parameters
  * @return {void}
  */
-global.doPost = (e) => {
+global.doPost = e => {
   const params = e.parameter
   if (!isValidToken(params.token)) {
     Logger.log('invalid token')
@@ -30,10 +30,10 @@ global.doTest = () => {
     token: config.webhook_token,
     text: 'ただいま',
     channel_id: 'C44HLB883',
-    user_name: 'tosuke'
+    user_name: 'tosuke',
   }
 
   doPost({
-    parameter: param
+    parameter: param,
   })
 }
